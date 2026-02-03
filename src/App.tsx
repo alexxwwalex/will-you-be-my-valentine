@@ -54,7 +54,7 @@ export default function Page() {
       {yesPressed ? (
         <>
           {/* YES PAGE GIF */}
-          <img src="https://media.tenor.com/8qjvQ5xpoWAAAAAi/heart-eyes.gif" />
+          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGJiNm52aW4xMnppaWExMjBxbWY0OWNnNXlvemhxMHduMTcxNDAxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/e5xL4bU0ETgLm/giphy.gif" />
           <div className="my-4 text-4xl font-bold">
             YAYYYYYYY! You Had no Choice pookie bear (;
           </div>
@@ -64,7 +64,7 @@ export default function Page() {
           {/* MAIN PAGE GIF (POMPOMPURIN) */}
           <img
             className="h-[200px]"
-            src="https://media.tenor.com/0t0xW0t1G0AAAAAi/pompompurin.gif"
+            src="https://media.tenor.com/-juTtqvaH5sAAAAi/pompompurin.gif"
           />
 
           <h1 className="my-4 text-4xl text-center">
