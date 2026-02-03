@@ -39,6 +39,7 @@ export default function Page() {
     const btn = noButtonRef.current;
     if (!btn) return;
 
+    // Only becomes absolute AFTER hover so it starts centered
     btn.style.position = "absolute";
 
     const x = Math.random() * (window.innerWidth - 150);
@@ -52,16 +53,18 @@ export default function Page() {
     <div className="-mt-16 flex h-screen flex-col items-center justify-center">
       {yesPressed ? (
         <>
-          <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
+          {/* YES PAGE GIF */}
+          <img src="https://media.tenor.com/8qjvQ5xpoWAAAAAi/heart-eyes.gif" />
           <div className="my-4 text-4xl font-bold">
             YAYYYYYYY! You Had no Choice pookie bear (;
           </div>
         </>
       ) : (
         <>
+          {/* MAIN PAGE GIF (POMPOMPURIN) */}
           <img
             className="h-[200px]"
-            src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif"
+            src="https://media.tenor.com/0t0xW0t1G0AAAAAi/pompompurin.gif"
           />
 
           <h1 className="my-4 text-4xl text-center">
