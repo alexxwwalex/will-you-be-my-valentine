@@ -39,7 +39,6 @@ export default function Page() {
     const btn = noButtonRef.current;
     if (!btn) return;
 
-    // Only becomes absolute AFTER hover so it starts centered
     btn.style.position = "absolute";
 
     const x = Math.random() * (window.innerWidth - 150);
@@ -54,18 +53,28 @@ export default function Page() {
       {yesPressed ? (
         <>
           {/* YES PAGE GIF */}
-          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGJiNm52aW4xMnppaWExMjBxbWY0OWNnNXlvemhxMHduMTcxNDAxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/e5xL4bU0ETgLm/giphy.gif" />
+          <div className="flex justify-center items-center w-full mb-4">
+            <img
+              className="h-[200px] object-contain"
+              src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGJiNm52aW4xMnppaWExMjBxbWY0OWNnNXlvemhxMHduMTcxNDAxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/e5xL4bU0ETgLm/giphy.gif"
+              alt="Heart Eyes"
+            />
+          </div>
+
           <div className="my-4 text-4xl font-bold">
             YAYYYYYYY! You Had no Choice pookie bear (;
           </div>
         </>
       ) : (
         <>
-          {/* MAIN PAGE GIF (POMPOMPURIN) */}
-          <img
-            className="h-[200px]"
-            src="https://media.tenor.com/-juTtqvaH5sAAAAi/pompompurin.gif"
-          />
+          {/* MAIN PAGE GIF */}
+          <div className="flex justify-center items-center w-full mb-4">
+            <img
+              className="h-[200px] object-contain"
+              src="https://media.tenor.com/-juTtqvaH5sAAAAi/pompompurin.gif"
+              alt="Pompompurin"
+            />
+          </div>
 
           <h1 className="my-4 text-4xl text-center">
             Will you be my Valentine, Jessica? (There is only one correct answer Litrally.)
