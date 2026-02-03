@@ -39,10 +39,11 @@ export default function Page() {
     const btn = noButtonRef.current;
     if (!btn) return;
 
+    btn.style.position = "absolute";
+
     const x = Math.random() * (window.innerWidth - 150);
     const y = Math.random() * (window.innerHeight - 150);
 
-    btn.style.position = "absolute";
     btn.style.left = `${x}px`;
     btn.style.top = `${y}px`;
   };
@@ -62,27 +63,38 @@ export default function Page() {
             className="h-[200px]"
             src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif"
           />
+
           <h1 className="my-4 text-4xl text-center">
             Will you be my Valentine, Jessica? (There is only one correct answer Litrally.)
           </h1>
 
-          <div className="flex items-center justify-center gap-4 relative w-full h-[200px]">
-            <button
-              className="rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700"
-              style={{ fontSize: yesButtonSize }}
-              onClick={() => setYesPressed(true)}
-            >
-              Yes
-            </button>
+          {/* CENTERED BUTTONS */}
+          <div className="relative w-full flex flex-col items-center justify-center">
+            <div className="flex items-center justify-center gap-4">
 
-            <button
-              ref={noButtonRef}
-              onMouseEnter={moveNoButton}
-              onClick={handleNoClick}
-              className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700 transition-all duration-200"
-            >
-              {noCount === 0 ? "No" : getNoButtonText()}
-            </button>
+              {/* YES BUTTON WITH SPARKLES */}
+              <div className="relative">
+                <div className="absolute inset-0 animate-ping rounded-full bg-pink-300 opacity-40"></div>
+                <button
+                  className="relative rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700 shadow-lg shadow-pink-300"
+                  style={{ fontSize: yesButtonSize }}
+                  onClick={() => setYesPressed(true)}
+                >
+                  Yes
+                </button>
+              </div>
+
+              {/* NO BUTTON */}
+              <button
+                ref={noButtonRef}
+                onMouseEnter={moveNoButton}
+                onClick={handleNoClick}
+                className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700 transition-all duration-200"
+              >
+                {noCount === 0 ? "No" : getNoButtonText()}
+              </button>
+
+            </div>
           </div>
         </>
       )}
