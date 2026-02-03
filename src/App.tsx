@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
+  const noButtonRef = useRef<HTMLButtonElement>(null);
   const yesButtonSize = noCount * 20 + 16;
 
   const handleNoClick = () => {
@@ -47,7 +48,7 @@ export default function Page() {
             src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif"
           />
           <h1 className="my-4 text-4xl">Will you be my Valentine, Jessica? (There is only one correct answer Litrally.)</h1>
-          <div className="flex items-center">
+          <div className="flex items-center relative w-full h-full">
             <button
               className={`mr-4 rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700`}
               style={{ fontSize: yesButtonSize }}
@@ -55,11 +56,33 @@ export default function Page() {
             >
               Yes
             </button>
-            <button
-              onClick={handleNoClick}
-              className=" rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700"
-            >
-              {noCount === 0 ? "No" : getNoButtonText()}
+           <button
+  ref={noButtonRef}
+  onMouseEnter={moveNoButton}
+  onClick={handleNoClick}
+  className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700 transition-all duration-200"
+>
+  {noCount === 0 ? "No" : getButtonText()}
+</button>
+<button
+  ref={noButtonRef}
+  onMouseEnter={moveNoButton}
+  onClick={handleNoClick}
+  className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700 transition-all duration-200"
+>
+  {noCount === 0 ? "No" : getButtonText()}
+</button>
+              const moveNoButton = () => {
+  const btn = noButtonRef.current;
+  if (!btn) return;
+
+  const x = Math.random() * (window.innerWidth - 150);
+  const y = Math.random() * (window.innerHeight - 150);
+
+  btn.style.position = "absolute";
+  btn.style.left = `${x}px`;
+  btn.style.top = `${y}px`;
+};
             </button>
           </div>
         </>
